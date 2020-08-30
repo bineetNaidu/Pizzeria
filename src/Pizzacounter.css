@@ -1,0 +1,21 @@
+.Pizzacounter__tile {
+  text-align: start;
+}
+.Pizzacounter__title {
+  color: #bbbbbb;
+  text-transform: uppercase;
+  font-size: small;
+  font-weight: 500;
+  display: flex;
+  justify-content: flex-start;
+}
+.Pizzacounter__content {
+  font-size: 13.5px;
+}
+.Pizzacounter__quantity {
+  display: flex;
+}
+.Pizzacounter__quantity p {
+  padding: 0 5px;
+  font-weight: 700;
+}
