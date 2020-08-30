@@ -1,0 +1,19 @@
+.Controllers {
+  transform: translateY(-35%);
+}
+.Controllers__btn__sizes {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  margin: 5px 0;
+}
+
+.Controllers__btn__cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+}
+.Controllers__btn__cont button {
+  margin: auto;
+}

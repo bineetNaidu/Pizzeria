@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
 import Infotab from "./Infotab";
+import Controllers from "./Controllers";
 
 import "./Pizzacounter.css";
 
@@ -14,6 +15,11 @@ export default class Pizzacounter extends Component {
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum totam fugit, sed modi dicta possimus odit veritatis harum inventore vero in ea cupiditate nobis maiores expedita quidem repellendus. Corporis, pariatur.",
         price: "$60",
       },
+      {
+        name: "Bineet",
+        info: "Loremiores expedita quidem repellendus. Corporis, pariatur.",
+        price: "$60",
+      },
     ],
   };
 
@@ -21,14 +27,22 @@ export default class Pizzacounter extends Component {
     super(props);
 
     this.state = {
-      currPizza: {
-        data: this.props.pizzas[0],
-        quantity: 1,
-      },
+      n: 0,
+      currPizza: null,
     };
 
     this.handleAddquantity = this.handleAddquantity.bind(this);
     this.handleRemovequantity = this.handleRemovequantity.bind(this);
+    this.handleNext = this.handleNext.bind(this);
+    this.handlePrev = this.handlePrev.bind(this);
+  }
+  componentDidMount() {
+    this.setState({
+      currPizza: {
+        data: this.props.pizzas[this.state.n],
+        quantity: 1,
+      },
+    });
   }
 
   handleAddquantity() {
@@ -48,28 +62,56 @@ export default class Pizzacounter extends Component {
       },
     });
   }
+  handleNext() {
+    this.setState((st) => ({
+      n: st.n + 1,
+      currPizza: {
+        data: this.props.pizzas[st.n + 1],
+        quantity: st.currPizza.quantity,
+      },
+    }));
+  }
+  handlePrev() {
+    this.setState((st) => ({
+      n: st.n - 1,
+      currPizza: {
+        data: this.props.pizzas[st.n - 1],
+        quantity: st.currPizza.quantity,
+      },
+    }));
+  }
 
   render() {
     const pizza = this.state.currPizza;
-    return (
-      <Container className="Pizzacounter">
-        <Grid container spacing={3}>
-          <Grid item xs className="Pizzacounter__tile">
-            <Infotab
-              info={pizza.data.info}
-              quantity={pizza.quantity}
-              add={this.handleAddquantity}
-              remove={this.handleRemovequantity}
-            />
-          </Grid>
-          <Grid item xs={6}>
-            <h1>hi</h1>
-          </Grid>
-          <Grid item xs>
-            <h1>Hi</h1>
-          </Grid>
-        </Grid>
-      </Container>
-    );
+    let data;
+    {
+      this.state.currPizza !== null
+        ? (data = (
+            <Container className="Pizzacounter">
+              <Grid container spacing={3}>
+                <Grid item xs className="Pizzacounter__tile">
+                  <Infotab
+                    info={pizza.data.info}
+                    quantity={pizza.quantity}
+                    add={this.handleAddquantity}
+                    remove={this.handleRemovequantity}
+                  />
+                </Grid>
+                <Grid item xs={6}>
+                  <Controllers
+                    name={pizza.data.name}
+                    next={this.handleNext}
+                    prev={this.handlePrev}
+                  />
+                </Grid>
+                <Grid item xs>
+                  <h1>Hi</h1>
+                </Grid>
+              </Grid>
+            </Container>
+          ))
+        : (data = "");
+    }
+    return <div>{data}</div>;
   }
 }
