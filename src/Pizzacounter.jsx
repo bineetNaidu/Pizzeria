@@ -4,30 +4,21 @@ import Container from "@material-ui/core/Container";
 import Infotab from "./Infotab";
 import Controllers from "./Controllers";
 import Pricetab from "./Pricetab";
+import Pizza from "./Pizza";
+import PizzasList from "./PizzasList";
 
 import "./Pizzacounter.css";
 
 export default class Pizzacounter extends Component {
   static defaultProps = {
-    pizzas: [
-      {
-        name: "Peperroni",
-        info:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum totam fugit, sed modi dicta possimus odit veritatis harum inventore vero in ea cupiditate nobis maiores expedita quidem repellendus. Corporis, pariatur.",
-        price: "$60",
-      },
-      {
-        name: "Bineet",
-        info: "Loremiores expedita quidem repellendus. Corporis, pariatur.",
-        price: "$60",
-      },
-    ],
+    pizzas: [...PizzasList],
   };
 
   constructor(props) {
     super(props);
 
     this.state = {
+      mLen: this.props.pizzas.length,
       n: 0,
       currPizza: null,
     };
@@ -59,7 +50,10 @@ export default class Pizzacounter extends Component {
     this.setState({
       currPizza: {
         ...this.state.currPizza,
-        quantity: this.state.currPizza.quantity - 1,
+        quantity:
+          this.state.currPizza.quantity === 0
+            ? 0
+            : this.state.currPizza.quantity - 1,
       },
     });
   }
@@ -112,6 +106,19 @@ export default class Pizzacounter extends Component {
                   />
                 </Grid>
               </Grid>
+              <Pizza
+                img={pizza.data.imgSrc}
+                next={
+                  this.props.pizzas[
+                    this.state.n === this.state.mLen ? 0 : this.state.n + 1
+                  ]
+                }
+                prev={
+                  this.props.pizzas[
+                    this.state.n === 0 ? this.state.mLen - 1 : this.state.n - 1
+                  ]
+                }
+              />
             </Container>
           ))
         : (data = "");

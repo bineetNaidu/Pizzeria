@@ -1,0 +1,15 @@
+.Pizza {
+  border-radius: 50%;
+  width: 30rem;
+}
+
+.Pizza__prev {
+  transform: translate(-65%, 0);
+}
+.Pizza__mid {
+  transform: translate(-23%, -30%);
+  z-index: -5 !important;
+}
+.Pizza__next {
+  transform: translate(20%, 0%);
+}

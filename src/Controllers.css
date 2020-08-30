@@ -1,5 +1,6 @@
 .Controllers {
   transform: translateY(-35%);
+  z-index: 10;
 }
 .Controllers__btn__sizes {
   display: flex;
