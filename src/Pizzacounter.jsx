@@ -3,6 +3,7 @@ import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
 import Infotab from "./Infotab";
 import Controllers from "./Controllers";
+import Pricetab from "./Pricetab";
 
 import "./Pizzacounter.css";
 
@@ -67,7 +68,7 @@ export default class Pizzacounter extends Component {
       n: st.n + 1,
       currPizza: {
         data: this.props.pizzas[st.n + 1],
-        quantity: st.currPizza.quantity,
+        quantity: 1,
       },
     }));
   }
@@ -76,7 +77,7 @@ export default class Pizzacounter extends Component {
       n: st.n - 1,
       currPizza: {
         data: this.props.pizzas[st.n - 1],
-        quantity: st.currPizza.quantity,
+        quantity: 1,
       },
     }));
   }
@@ -105,7 +106,10 @@ export default class Pizzacounter extends Component {
                   />
                 </Grid>
                 <Grid item xs>
-                  <h1>Hi</h1>
+                  <Pricetab
+                    price={pizza.data.price}
+                    quantity={pizza.quantity}
+                  />
                 </Grid>
               </Grid>
             </Container>
