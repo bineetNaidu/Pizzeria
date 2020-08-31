@@ -27,11 +27,13 @@ export default class Pizzacounter extends Component {
     this.handleRemovequantity = this.handleRemovequantity.bind(this);
     this.handleNext = this.handleNext.bind(this);
     this.handlePrev = this.handlePrev.bind(this);
+    this.handleSize = this.handleSize.bind(this);
   }
   componentDidMount() {
     this.setState({
       currPizza: {
         data: this.props.pizzas[this.state.n],
+        w: "25rem",
         quantity: 1,
       },
     });
@@ -75,6 +77,11 @@ export default class Pizzacounter extends Component {
       },
     }));
   }
+  handleSize(s) {
+    this.setState((st) => ({
+      currPizza: { ...st.currPizza, w: s },
+    }));
+  }
 
   render() {
     const pizza = this.state.currPizza;
@@ -97,6 +104,7 @@ export default class Pizzacounter extends Component {
                     name={pizza.data.name}
                     next={this.handleNext}
                     prev={this.handlePrev}
+                    size={this.handleSize}
                   />
                 </Grid>
                 <Grid item xs>
@@ -107,7 +115,7 @@ export default class Pizzacounter extends Component {
                 </Grid>
               </Grid>
               <Grid item xs={12}>
-                <Pizza img={pizza.data.imgSrc} />
+                <Pizza img={pizza.data.imgSrc} size={pizza.w} />
               </Grid>
             </Container>
           ))

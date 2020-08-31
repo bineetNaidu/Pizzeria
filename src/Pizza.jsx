@@ -7,7 +7,12 @@ export default class Pizza extends Component {
 
     return (
       <div className="Pizza">
-        <img src={img} alt="CURR IMG" className=" Pizza__item" />
+        <img
+          src={img}
+          alt="CURR IMG"
+          className=" Pizza__item"
+          style={{ width: size }}
+        />
       </div>
     );
   }
