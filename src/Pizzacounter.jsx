@@ -106,19 +106,9 @@ export default class Pizzacounter extends Component {
                   />
                 </Grid>
               </Grid>
-              <Pizza
-                img={pizza.data.imgSrc}
-                next={
-                  this.props.pizzas[
-                    this.state.n === this.state.mLen ? 0 : this.state.n + 1
-                  ]
-                }
-                prev={
-                  this.props.pizzas[
-                    this.state.n === 0 ? this.state.mLen - 1 : this.state.n - 1
-                  ]
-                }
-              />
+              <Grid item xs={12}>
+                <Pizza img={pizza.data.imgSrc} />
+              </Grid>
             </Container>
           ))
         : (data = "");

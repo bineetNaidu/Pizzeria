@@ -14,9 +14,24 @@ export default class Controllers extends Component {
         <h3>PIZZA OF THE MONTH</h3>
         <div className="Controllers__btn">
           <div className="Controllers__btn__sizes">
-            <IconButton aria-label="small size pizza">S</IconButton>
-            <IconButton aria-label="middium size pizza">M</IconButton>
-            <IconButton aria-label="large size pizza">L</IconButton>
+            <IconButton
+              aria-label="small size pizza"
+              style={{ color: "white" }}
+            >
+              S
+            </IconButton>
+            <IconButton
+              aria-label="middium size pizza"
+              style={{ color: "white" }}
+            >
+              M
+            </IconButton>
+            <IconButton
+              aria-label="large size pizza"
+              style={{ color: "white" }}
+            >
+              L
+            </IconButton>
           </div>
           <div className="Controllers__btn__cont">
             <IconButton aria-label="next pizza" onClick={next}>

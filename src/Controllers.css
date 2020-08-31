@@ -1,20 +1,25 @@
 .Controllers {
-  transform: translateY(-35%);
-  z-index: 10;
+  transform: translateY(-18%);
+  z-index: 2;
+  color: white !important;
 }
 .Controllers__btn__sizes {
   display: flex;
   width: 100%;
   justify-content: space-evenly;
   margin: 5px 0;
+  color: white !important;
 }
 
 .Controllers__btn__cont {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  color: white !important;
+
   margin: auto;
 }
 .Controllers__btn__cont button {
   margin: auto;
+  color: white !important;
 }

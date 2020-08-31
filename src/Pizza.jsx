@@ -3,13 +3,11 @@ import "./Pizza.css";
 
 export default class Pizza extends Component {
   render() {
-    const { img, next, prev } = this.props;
+    const { img, size } = this.props;
 
     return (
-      <div style={{ display: "flex" }}>
-        <img src={prev.imgSrc} alt="Prev IMG" className="Pizza Pizza__prev" />
-        <img src={img} alt="CURR IMG" className="Pizza Pizza__mid" />
-        <img src={next.imgSrc} alt="Next IMG" className="Pizza Pizza__next" />
+      <div className="Pizza">
+        <img src={img} alt="CURR IMG" className=" Pizza__item" />
       </div>
     );
   }

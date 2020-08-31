@@ -8,7 +8,10 @@ export default class Navbar extends Component {
   render() {
     return (
       <nav className="Navbar">
-        <h3 className="Navbar__logo">PIZZERIA</h3>
+        <div className="brand">
+          <i className="fas fa-pizza-slice"></i>
+          <span className="Navbar__logo">PIZZERIA</span>
+        </div>
         <div className="Navbar__links">
           <button>
             <AddShoppingCartIcon />

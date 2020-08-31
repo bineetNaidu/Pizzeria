@@ -17,10 +17,16 @@
   margin: 0;
   outline: none;
   border: none;
+  color: white;
   cursor: pointer;
   background: none;
   transition: all 0.5s ease;
 }
 .Navbar__links button:hover {
   background: rgba(0, 0, 0, 0.2);
+}
+.brand {
+  width: 10%;
+  display: flex;
+  justify-content: space-evenly;
 }
